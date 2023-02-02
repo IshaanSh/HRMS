@@ -1,0 +1,30 @@
+<mat-card class="login">
+
+  <mat-card class="card1">
+    <div class="inside">
+      <div class="logo">
+    <img src="../../assets/applogo (1).png" alt="">
+      </div>
+      <div *ngIf="loginCredential">
+        <app-google></app-google>
+      </div>
+      <div *ngIf="!loginCredential">
+        <app-authform></app-authform>
+      </div>
+      <div class="forgetpassword" [routerLink]="['/forget-password']" *ngIf="!show">
+        <p>Forget Password?</p>
+      </div>
+      <div class="login-button">
+        <button *ngIf="!show"> <mat-icon>home</mat-icon> <span>LOGIN</span></button>
+      </div>
+    </div>
+    <div class="inside2">
+      <button (click)="credential()" *ngIf="loginCredential">LOGIN WITH CREDENTIALS</button>
+      <button (click)="google()" *ngIf="!loginCredential">Login with Google</button>
+    </div>
+    <hr style="color:gray;background-color:gray; margin: 2px; border-style: inset;">
+    <div class="last">
+      <p>2023 <span class="material-icons">copyright</span> Appinventiv HR System</p>
+    </div>
+  </mat-card>
+</mat-card>
